@@ -28,20 +28,33 @@ Including another URLconf
 #     path("data/", views.data_render),
 
 # ]
+# from django.contrib import admin
+
+# from django.contrib import admin
+# from django.urls import path
+# from . import views
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     # path('', views.home, name='home'),  # Default home page
+#     path('index/', views.index, name='index'),
+#     path('about/', views.about, name='about'),
+#     path('contact/', views.contact, name='contact'),
+#     path('data/', views.data_render, name='data'),
+#     path('country-selection/', views.country_selection, name='country_selection'),
+#     path('student/<int:student_id>/', views.student_detail, name='student_detail'),
+# ]
+
 from django.contrib import admin
 from django.urls import path
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),  # Make home the default page
-    path('home/', views.home, name='home'),
     path('index/', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('data/', views.data_render, name='data'),
     path('country-selection/', views.country_selection, name='country_selection'),
-    path('<int:student_id>/', views.student_detail, name='student_detail'),
-
-
+    path('student/<int:student_id>/', views.student_detail, name='student_detail'),
 ]

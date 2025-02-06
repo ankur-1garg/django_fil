@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .student-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .pass {
+            color: green;
+            font-weight: bold;
+            padding: 5px 10px;
+            background-color: #dff0d8;
+            border-radius: 4px;
+        }
+
+        .fail {
+            color: red;
+            font-weight: bold;
+            padding: 5px 10px;
+            background-color: #f2dede;
+            border-radius: 4px;
+        }
+
+        .summary {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Student Mark Sheet</h1>
+        </div>
+
+        <div class="student-info">
+            <h2>{{ student.name }}</h2>
+            <p>Student ID: {{ student.id }}</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Maximum Marks</th>
+            </tr>
+            {% for subject, mark in zip(subjects, student.marks) %}
+            <tr>
+                <td>{{ subject }}</td>
+                <td>{{ mark }}</td>
+                <td>100</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="summary">
+            <p><strong>Total Marks:</strong> {{ total_marks }}/300</p>
+            <p><strong>Average Marks:</strong> {{ average_marks }}%</p>
+            <p><strong>Status:</strong>
+                <span class="{% if status == 'Pass' %}pass{% else %}fail{% endif %}">
+                    {{ status }}
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

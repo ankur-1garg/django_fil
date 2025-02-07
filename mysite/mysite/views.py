@@ -1,9 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import requests
-from django.conf import settings
+# from django.conf import settings
 import logging
-from django.shortcuts import render, Http404
+# from django.shortcuts import render, Http404
 
 
 logger = logging.getLogger(__name__)
@@ -97,7 +97,7 @@ students = [
 
 
 students = [
-    {'name': 'John', 'id': 1, 'marks': [10, 20, 30]},
+    {'name': 'kartikey', 'id': 1, 'marks': [-1, -2, -3]},
     {'name': 'Steve', 'id': 2, 'marks': [40, 50, 60]},
     {'name': 'Sarah', 'id': 3, 'marks': [75, 85, 90]},
     {'name': 'Mike', 'id': 4, 'marks': [65, 70, 75]},

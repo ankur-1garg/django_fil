@@ -46,15 +46,19 @@ Including another URLconf
 # ]
 
 from django.contrib import admin
+from django.urls import path, include
+from . import views
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', views.index, name='index'),  # Root URL
     path('index/', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('data/', views.data_render, name='data'),
     path('country-selection/', views.country_selection, name='country_selection'),
     path('student/<int:student_id>/', views.student_detail, name='student_detail'),
+    path('myapp/', include('myapp.urls')),
 ]
